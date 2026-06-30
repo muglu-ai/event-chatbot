@@ -11,7 +11,6 @@ frontend/dist-widget/
 data/
 .env
 .DS_Store
-*.sqlite
 
 # Legacy Node server (deprecated)
 server/
