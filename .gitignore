@@ -1,0 +1,20 @@
+node_modules/
+backend/vendor/
+backend/.env
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+frontend/node_modules/
+frontend/dist/
+frontend/dist-widget/
+data/
+.env
+.DS_Store
+*.sqlite
+
+# Legacy Node server (deprecated)
+server/
+public/
+package-lock.json
+package.json
