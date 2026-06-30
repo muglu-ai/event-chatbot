@@ -1,0 +1,28 @@
+name: event-chatbot
+region: blr
+
+services:
+  - name: web
+    environment_slug: php
+    github:
+      repo: muglu-ai/event-chatbot
+      branch: main
+      deploy_on_push: true
+    source_dir: backend
+    run_command: heroku-php-apache2 public/
+    build_command: composer install --no-dev --optimize-autoloader && php artisan config:cache && php artisan route:cache
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /
+
+jobs:
+  - name: migrate
+    kind: POST_DEPLOY
+    environment_slug: php
+    github:
+      repo: muglu-ai/event-chatbot
+      branch: main
+    source_dir: backend
+    run_command: php artisan migrate --force
